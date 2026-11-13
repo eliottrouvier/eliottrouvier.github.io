@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
 <title>Eliott Rouvier</title>
-<meta name="description" content="Eliott Rouvier — CentraleSupélec student and Visiting Student Researcher at NASA Jet Propulsion Laboratory.">
+<meta name="description" content="Eliott Rouvier — CentraleSupélec student (AI/ML & Computer Vision) and Visiting Student Researcher at NASA JPL.">
 <meta property="og:title" content="Eliott Rouvier">
 <meta property="og:description" content="CentraleSupélec student · Visiting Student Researcher at NASA JPL.">
 <meta property="og:type" content="website">
@@ -181,7 +181,7 @@ a:hover {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.25rem 1rem;
+  gap: 0.25rem 1.15rem;
 }
 
 .nav-links a {
@@ -217,7 +217,7 @@ a:hover {
   font-size: clamp(1.05rem, 2.2vw, 1.25rem);
   color: var(--muted);
   letter-spacing: -0.01em;
-  max-width: 42ch;
+  max-width: 44ch;
 }
 
 .hero-links {
@@ -281,12 +281,14 @@ a:hover {
   object-fit: cover;
 }
 
-.about-body p + p {
-  margin-top: 0.9rem;
+.about-lead {
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
 }
 
 .facts {
-  margin-top: 1.5rem;
+  margin-top: 1.25rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1rem 1.5rem;
@@ -309,80 +311,97 @@ a:hover {
   font-weight: 500;
 }
 
-/* Timeline / Entries */
-.entry-list li:not(:last-child) {
-  padding-bottom: 1.5rem;
-  margin-bottom: 1.5rem;
-  border-bottom: 1px solid var(--line);
+/* Projects */
+.project-group + .project-group {
+  margin-top: 2rem;
 }
 
-.entry {
+.project-group-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: 1rem;
+}
+
+.project-grid {
   display: grid;
-  grid-template-columns: 155px 1fr;
-  gap: 0.5rem 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.project-card {
+  padding: 1.25rem;
+  background: var(--surface);
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.project-card-head {
+  display: flex;
   align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
 }
 
-.entry-date {
-  font-size: 0.85rem;
-  color: var(--muted);
-  font-variant-numeric: tabular-nums;
-}
-
-.entry-role {
+.project-card h4 {
+  margin: 0;
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: -0.01em;
 }
 
-.entry-org {
+.project-stack {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.project-desc {
   font-size: 0.92rem;
-  color: var(--muted);
-  margin-top: 0.15rem;
-}
-
-.entry-desc {
-  margin-top: 0.5rem;
-  font-size: 0.93rem;
   color: var(--text);
-}
-
-/* Skills */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.25rem;
-}
-
-.skill-card {
-  padding: 1.15rem 1.25rem;
-  background: var(--surface);
-  border-radius: 12px;
-}
-
-.skill-card h3 {
-  font-size: 0.85rem;
-  font-weight: 600;
-  margin-bottom: 0.55rem;
-}
-
-.skill-card p {
-  font-size: 0.9rem;
-  color: var(--muted);
   line-height: 1.55;
 }
 
-/* Placeholder cards for Projects & Publications */
+.project-link {
+  margin-top: auto;
+  padding-top: 0.35rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+  min-block-size: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.project-link::after {
+  content: "›";
+  font-size: 1.1em;
+  line-height: 1;
+}
+
+.research-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.research-pill {
+  padding: 0.55rem 0.95rem;
+  background: var(--surface);
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Placeholder card for Publications */
 .placeholder-box {
   padding: 1.25rem 1.35rem;
   background: var(--surface);
   border-radius: 12px;
   font-size: 0.93rem;
   color: var(--muted);
-}
-
-.placeholder-box a {
-  font-weight: 500;
 }
 
 /* Contact */
@@ -423,11 +442,6 @@ a:hover {
   .portrait-frame {
     max-width: 210px;
   }
-
-  .entry {
-    grid-template-columns: 1fr;
-    gap: 0.25rem;
-  }
 }
 </style>
 </head>
@@ -440,10 +454,7 @@ a:hover {
     <nav aria-label="Primary">
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#education">Education</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
         <li><a href="#publications">Publications</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -467,157 +478,96 @@ a:hover {
       <h2 class="section-title" id="about-heading">About</h2>
       <div class="about-grid">
         <figure class="portrait-frame">
-          <img src="surf.gif" width="360" height="640" alt="Surfing demo animation from Eliott Rouvier's GitHub profile">
+          <img src="surf.gif" width="360" height="640" alt="Surf Camera Vision demo animation">
         </figure>
-        <div class="about-body">
-          <p>I am an engineering student at CentraleSupélec pursuing a Master of Engineering with a focus on Applied Mathematics, Machine Learning, and Computer Vision. I am currently a Visiting Student Researcher at the NASA Jet Propulsion Laboratory (hosted through Caltech).</p>
-          <p>Previously, I served as a Graduate Teaching Assistant in Quantum and Statistical Physics at CentraleSupélec, worked on CubeSat ground segment operations and ADCS modeling at CS³, and taught oral mathematics for CPGE students at Lycée Hoche.</p>
+        <div>
+          <p class="about-lead">CentraleSupélec student — AI/ML &amp; Computer Vision.</p>
           <dl class="facts">
             <div>
-              <dt>Current Role</dt>
+              <dt>Affiliation</dt>
+              <dd>CentraleSupélec</dd>
+            </div>
+            <div>
+              <dt>Visiting Role</dt>
               <dd>Visiting Student Researcher, NASA JPL</dd>
             </div>
             <div>
-              <dt>Home Institution</dt>
-              <dd>CentraleSupélec (MEng)</dd>
-            </div>
-            <div>
               <dt>Focus</dt>
-              <dd>Applied Math, AI/ML &amp; Computer Vision</dd>
+              <dd>AI/ML &amp; Computer Vision</dd>
             </div>
           </dl>
         </div>
       </div>
     </section>
 
-    <section class="section" id="experience" aria-labelledby="experience-heading">
-      <h2 class="section-title" id="experience-heading">Experience</h2>
-      <ol class="entry-list">
-        <li class="entry">
-          <span class="entry-date">Aug 2026 – Present</span>
-          <div>
-            <h3 class="entry-role">Visiting Student Researcher</h3>
-            <p class="entry-org">NASA Jet Propulsion Laboratory · Pasadena, CA</p>
-          </div>
-        </li>
-        <li class="entry">
-          <span class="entry-date">Jul 2025 – Present</span>
-          <div>
-            <h3 class="entry-role">Operational Reservist</h3>
-            <p class="entry-org">1er RHP (1st Parachute Hussar Regiment), French Army · Tarbes, France</p>
-            <p class="entry-desc">Commanded a 3-soldier tactical unit in demanding environments, executing rapid decision-making and crisis management.</p>
-          </div>
-        </li>
-        <li class="entry">
-          <span class="entry-date">Sep 2025 – Jun 2026</span>
-          <div>
-            <h3 class="entry-role">Graduate Teaching Assistant — Quantum &amp; Statistical Physics</h3>
-            <p class="entry-org">CentraleSupélec · Gif-sur-Yvette, France</p>
-            <p class="entry-desc">Supervised 20 undergraduate engineering students and led weekly tutorials on wave-particle duality, Schrödinger's equation, and statistical mechanics.</p>
-          </div>
-        </li>
-        <li class="entry">
-          <span class="entry-date">Sep 2025 – Jun 2026</span>
-          <div>
-            <h3 class="entry-role">Ground Segment Engineer</h3>
-            <p class="entry-org">CS³ (CentraleSupélec Space Center for CubeSats) · Gif-sur-Yvette, France</p>
-            <p class="entry-desc">Established data budgets for CubeSat-to-ground exchanges and managed telecommand and telemetry operations using CNES's Simple Center Control software.</p>
-          </div>
-        </li>
-        <li class="entry">
-          <span class="entry-date">Dec 2024 – Sep 2025</span>
-          <div>
-            <h3 class="entry-role">ADCS Engineer (Attitude Determination and Control System)</h3>
-            <p class="entry-org">CS³ (CentraleSupélec Space Center for CubeSats) · Gif-sur-Yvette, France</p>
-            <p class="entry-desc">Optimized post-deployment satellite detumbling procedures, simulated stabilization phases in Simulink, and conducted system modeling and analysis.</p>
-          </div>
-        </li>
-        <li class="entry">
-          <span class="entry-date">Jun 2025 – Jul 2025</span>
-          <div>
-            <h3 class="entry-role">Surf Instructor</h3>
-            <p class="entry-org">L'École de la Glisse · Bidart, France</p>
-            <p class="entry-desc">Delivered technical surf instruction in English and managed safety and equipment logistics in a demanding aquatic environment.</p>
-          </div>
-        </li>
-        <li class="entry">
-          <span class="entry-date">Sep 2024 – Jul 2025</span>
-          <div>
-            <h3 class="entry-role">Oral Mathematics Examiner (CPGE Honors Section)</h3>
-            <p class="entry-org">Lycée Hoche · Versailles, France</p>
-            <p class="entry-desc">Conducted weekly oral mathematics examinations for second-year preparatory class students preparing for national engineering entrance exams.</p>
-          </div>
-        </li>
-      </ol>
-    </section>
-
-    <section class="section" id="education" aria-labelledby="education-heading">
-      <h2 class="section-title" id="education-heading">Education</h2>
-      <ol class="entry-list">
-        <li class="entry">
-          <span class="entry-date">Aug 2026 – Jan 2027</span>
-          <div>
-            <h3 class="entry-role">Visiting Research Student</h3>
-            <p class="entry-org">Caltech</p>
-            <p class="entry-desc">Hosted for a Master's project at the NASA Jet Propulsion Laboratory.</p>
-          </div>
-        </li>
-        <li class="entry">
-          <span class="entry-date">Sep 2024 – Jul 2028</span>
-          <div>
-            <h3 class="entry-role">Master of Engineering (MEng)</h3>
-            <p class="entry-org">CentraleSupélec</p>
-            <p class="entry-desc">BSc Engineering and MSc Applied Mathematics track. Coursework in Machine Learning, Statistics &amp; Learning, Algorithmics &amp; Complexity, Advanced Probabilities, Information Systems &amp; Programming, and Quantum &amp; Statistical Physics.</p>
-          </div>
-        </li>
-        <li class="entry">
-          <span class="entry-date">Sep 2023 – Jul 2024</span>
-          <div>
-            <h3 class="entry-role">Classes Préparatoires aux Grandes Écoles (CPGE)</h3>
-            <p class="entry-org">Lycée Hoche</p>
-            <p class="entry-desc">Intensive undergraduate program in Advanced Mathematics, Physics, Computer Science, and Engineering Science.</p>
-          </div>
-        </li>
-        <li class="entry">
-          <span class="entry-date">Sep 2022 – Jul 2023</span>
-          <div>
-            <h3 class="entry-role">Classes Préparatoires aux Grandes Écoles (CPGE)</h3>
-            <p class="entry-org">Lycée Fénelon Sainte-Marie</p>
-          </div>
-        </li>
-        <li class="entry">
-          <span class="entry-date">Sep 2019 – Jul 2022</span>
-          <div>
-            <h3 class="entry-role">Baccalauréat Général</h3>
-            <p class="entry-org">Lycée Sainte-Ursule</p>
-            <p class="entry-desc">Mathematics, Physics-Chemistry, and Expert Mathematics.</p>
-          </div>
-        </li>
-      </ol>
-    </section>
-
     <section class="section" id="projects" aria-labelledby="projects-heading">
       <h2 class="section-title" id="projects-heading">Projects</h2>
-      <div class="placeholder-box">
-        Selected projects will be featured here soon. In the meantime, you can explore my public repositories on <a href="https://github.com/eliottrouvier" target="_blank" rel="noopener noreferrer">GitHub</a>.
-      </div>
-    </section>
 
-    <section class="section" id="skills" aria-labelledby="skills-heading">
-      <h2 class="section-title" id="skills-heading">Skills</h2>
-      <div class="skills-grid">
-        <div class="skill-card">
-          <h3>Engineering &amp; AI</h3>
-          <p>Python, PyTorch, Computer Vision, Machine Learning, Simulink, ANSYS</p>
+      <div class="project-group">
+        <h3 class="project-group-title">Computer Vision &amp; 3D</h3>
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-card-head">
+              <h4>surf-camera-vision</h4>
+            </div>
+            <p class="project-stack">Python · PyTorch · YOLOv8 · OpenCV</p>
+            <p class="project-desc">Autonomous virtual PTZ (Pan Tilt Zoom) cameraman tracking surfers with instance segmentation, kinematic take-off detection, and cinematic auto-framing.</p>
+            <a class="project-link" href="https://github.com/eliottrouvier/surf-camera-vision" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+          </article>
+
+          <article class="project-card">
+            <div class="project-card-head">
+              <h4>ViT-jax</h4>
+            </div>
+            <p class="project-stack">PyTorch · JAX / Flax</p>
+            <p class="project-desc">ViT-B/16, self-supervised learning (MAE, DINO), and JAX acceleration.</p>
+            <a class="project-link" href="https://github.com/eliottrouvier/ViT-jax" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+          </article>
+
+          <article class="project-card">
+            <div class="project-card-head">
+              <h4>car-vision</h4>
+            </div>
+            <p class="project-stack">Python · PyTorch · YOLO</p>
+            <p class="project-desc">Real-time panoptic perception cockpit with windshield AR HUD and 3D Bird's-Eye View.</p>
+            <a class="project-link" href="https://github.com/eliottrouvier/car-vision" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+          </article>
+
+          <article class="project-card">
+            <div class="project-card-head">
+              <h4>vision-3d</h4>
+            </div>
+            <p class="project-stack">Python · MediaPipe · PyOpenGL</p>
+            <p class="project-desc">Real-time 3D Human Mesh Recovery and articulated avatar studio with 1€ filtering.</p>
+            <a class="project-link" href="https://github.com/eliottrouvier/vision-3d" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+          </article>
+
+          <article class="project-card">
+            <div class="project-card-head">
+              <h4>realtime-vision-segmentation</h4>
+            </div>
+            <p class="project-stack">Python · PyTorch · YOLO</p>
+            <p class="project-desc">Real-time instance segmentation, open-vocabulary detection, and 75+ point pose tracking.</p>
+            <a class="project-link" href="https://github.com/eliottrouvier/realtime-vision-segmentation" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+          </article>
+
+          <article class="project-card">
+            <div class="project-card-head">
+              <h4>stanford-cs231n</h4>
+            </div>
+            <p class="project-stack">Python · NumPy · PyTorch</p>
+            <p class="project-desc">Deep visual recognition architectures and optimization algorithms from Stanford CS231n.</p>
+            <a class="project-link" href="https://github.com/eliottrouvier/stanford-cs231n" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+          </article>
         </div>
-        <div class="skill-card">
-          <h3>Mathematics &amp; Physics</h3>
-          <p>Applied Mathematics, Probability &amp; Statistics, Algorithmics &amp; Complexity, Quantum &amp; Statistical Physics</p>
-        </div>
-        <div class="skill-card">
-          <h3>Teaching &amp; Leadership</h3>
-          <p>Oral Mathematics Instruction, Physics Tutoring, Tactical Unit Leadership, Surf Instruction</p>
-        </div>
+      </div>
+
+      <div class="project-group">
+        <h3 class="project-group-title">Other Projects &amp; Research</h3>
+        <ul class="research-list">
+          <li class="research-pill">Optical Interferometry &amp; Astrophysics</li>
+          <li class="research-pill">Applied LLM &amp; RAG Systems</li>
+        </ul>
       </div>
     </section>
 
